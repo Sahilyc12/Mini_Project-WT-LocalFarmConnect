@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>LocalFarmConnect - Contact Us</title>
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+<body>
+  <!-- Navigation Menu -->
+  <div id="menu" align="middle">
+    <a href="index.html">HOME</a> |
+    <a href="products.php">PRODUCTS</a> |
+    <a href="farmer-register.html">FARMER REGISTER</a> |
+    <a href="user-register.html">USER REGISTER</a> |
+    <a href="farmer-login.html">FARMER LOGIN</a> |
+    <a href="user-login.html">USER LOGIN</a> |
+    <a href="contact.html">CONTACT</a>
+  </div>  
+  
+  <!-- Page Header -->
+  <h1>Get in Touch With LocalFarmConnect</h1>
+  <p style="text-align:center;">We'd love to hear from you! Fill out the form below or use the contact details to reach us directly.</p>
+
+  <!-- Main content container -->
+  <div style="width: 80%; margin: auto; display: flex; flex-wrap: wrap; gap: 40px; justify-content: center;">
+
+    <!-- Contact Form Section -->
+    <div style="flex: 1 1 400px; min-width: 300px; border: 1px solid #ccc; padding: 20px; border-radius: 8px; box-shadow: 2px 2px 6px #aaa;">
+      <h2>Contact Form</h2>
+      <form id="contactForm" action="contact_submit.php" method="post">
+        <label for="name">Full Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Your name" required><br><br>
+      
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Your email" required><br><br>
+      
+        <label for="phone">Phone Number:</label><br>
+        <input type="tel" id="phone" name="phone" placeholder="Optional"><br><br>
+      
+        <label for="subject">Subject:</label><br>
+        <input type="text" id="subject" name="subject" placeholder="Reason for contact" required><br><br>
+      
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="5" placeholder="Type your message here..." required style="width: 100%; box-sizing: border-box; padding: 8px;"></textarea><br><br>
+      
+        <input type="submit" value="Send Message" style="padding:10px 20px; font-size:16px;">
+        <input type="reset" value="Reset" style="padding:10px 20px; font-size:16px;">
+      </form>
+      
+    </div>
+
+    <!-- Contact Details Section -->
+    <div style="flex: 1 1 300px; min-width: 250px; border: 1px solid #ccc; padding: 20px; border-radius: 8px; box-shadow: 2px 2px 6px #aaa;">
+      <h2>Contact Details</h2>
+      <p><strong>Email:</strong> support@localfarmconnect.com</p>
+      <p><strong>Phone:</strong> +91-9096994874</p>
+      <p><strong>Address:</strong>Main Market, Margao, Goa</p>
+    </div>
+
+  </div>
+
+  <!-- JS: Form Validation & Confirmation -->
+  <script>
+    const form = document.getElementById('contactForm');
+
+  form.addEventListener('submit', function(e) {
+  e.preventDefault();  // Prevent form submission initially
+
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const subject = document.getElementById('subject').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  // Validation checks
+  if (!name || !email || !subject || !message) {
+    alert("Please fill in all required fields.");
+    return; // Prevent submission if fields are empty
+  }
+
+  const emailPattern = /\S+@\S+\.\S+/;
+  if (!emailPattern.test(email)) {
+    alert("Please enter a valid email address.");
+    return; // Prevent submission if email is invalid
+  }
+
+  // submit if valid
+  form.submit();  // This submits the form to contact_submit.php
+});
+  </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+* {
+  box-sizing: border-box;
+}
+
+/* ========== General Page Style ========== */
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0; /* Ensure no default margin */
+}
+
+body {
+  background: url('farm-background.png') center/cover fixed no-repeat;
+  font-family: "Times New Roman", Times, serif;
+  color: #2e2e2e;
+}
+
+/* subtle white overlay for readability */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255,255,255,0.8);
+  z-index: -1;
+}
+
+/* Make main content expand and push footer down (exclude #menu so navbar doesn't grow on short pages) */
+body > :not(#menu):not(footer) {
+  flex: 1 0 auto;
+}
+
+/* Ensure navbar keeps natural height and spans the width */
+#menu {
+  flex: 0 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ========== Navigation Menu ========== */
+#menu {
+  text-align: center;
+  background-color: rgba(255,255,255,0.9);
+  padding: 10px;
+  border-bottom: 2px solid #4CAF50;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#menu a {
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+  color: #2e7d32;
+}
+#menu a:hover { color: #1b5e20; text-decoration: underline; }
+
+/* ========== Headings ========== */
+h1, h2 {
+  color: #1b5e20;
+  text-align: center;
+}
+
+/* ========== Box Model ========== */
+.box {
+  width: 300px;
+  border: 2px solid #4CAF50;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 20px auto;
+  background-color: rgba(255,255,255,0.9);
+  text-align: center;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+}
+
+/* ========== Forms & Inputs ========== */
+input[type=text],
+input[type=password],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  box-sizing: border-box;
+}
+
+input[type=button],
+input[type=submit],
+input[type=reset] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+input[type=submit]:hover { background-color: #388E3C; }
+
+/* ========== Product Card Styling ========== */
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  width: 220px;
+  text-align: center;
+  box-shadow: 2px 2px 8px #aaa;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #fff;
+}
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 4px 4px 12px #777;
+}
+.product-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.product-card button {
+  padding: 8px 12px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+.product-card button:first-of-type { background-color: green; }
+.product-card button:first-of-type:hover { background-color: darkgreen; }
+.product-card button:last-of-type { background-color: orange; }
+.product-card button:last-of-type:hover { background-color: darkorange; }
+
+/* Edit/Delete buttons */
+.edit-btn { background-color: blue; }
+.edit-btn:hover { background-color: darkblue; }
+.delete-btn { background-color: red; }
+.delete-btn:hover { background-color: darkred; }
+
+/* Responsive cards */
+@media (max-width: 600px) {
+  .product-card { width: 90%; }
+}
+
+/* ========== Footer ========== */
+footer {
+  flex-shrink: 0;
+  background-color: rgba(255,255,255,0.9);
+  padding: 10px;
+  border-top: 2px solid #4CAF50;
+  text-align: center;
+  color: #1b5e20;
+  margin-top: auto;
+  width: 100%;
+}
+
+/* ==== Fix for Navbar Overflow on Login/Register Pages ==== */
+html, body {
+  overflow-x: hidden;   /* Prevent horizontal scroll caused by flex or shadow */
+}
+
+#menu {
+  max-width: 100vw;     /* Restrict menu width to the viewport width */
+  box-sizing: border-box;
+}

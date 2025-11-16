@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Farmer Login - LocalFarmConnect</title>
+  <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+    <div id="menu" align="middle">
+        <a href="index.html">HOME</a> |
+        <a href="products.php">PRODUCTS</a> |
+        <a href="farmer-register.html">FARMER REGISTER</a> |
+        <a href="user-register.html">USER REGISTER</a> |
+        <a href="farmer-login.html">FARMER LOGIN</a> |
+        <a href="user-login.html">USER LOGIN</a> |
+        <a href="contact.html">CONTACT</a>
+      </div>
+      
+
+  <h1 align="center">Farmer Login</h1>
+
+  <form action="farmer_login.php" method="post" style="width:50%;margin:auto;">
+    <label for="email">Email:</label><br>
+    <input type="text" id="email" name="email" required><br><br>
+
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" required><br><br>
+
+    <input type="submit" value="Login">
+    <input type="reset" value="Reset">
+  </form>
+</body>
+</html>

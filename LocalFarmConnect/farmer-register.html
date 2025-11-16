@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>LocalFarmConnect - Farmer Register</title>
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+<body>
+  <div id="menu" align="middle">
+    <a href="index.html">HOME</a> |
+    <a href="products.php">PRODUCTS</a> |
+    <a href="farmer-register.html">FARMER REGISTER</a> |
+    <a href="user-register.html">USER REGISTER</a> |
+    <a href="farmer-login.html">FARMER LOGIN</a> |
+    <a href="user-login.html">USER LOGIN</a> |
+    <a href="contact.html">CONTACT</a>
+  </div>
+  
+
+  <h1 align="center">Farmer Registration</h1>
+
+  <form action="register.php" method="post" style="width:50%; margin:auto;">
+    <label for="name">Full Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="text" id="email" name="email" required><br><br>
+
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" required><br><br>
+
+    <label for="location">Location:</label><br>
+    <input type="text" id="location" name="location"><br><br>
+
+    <label for="produce_type">Type of Produce:</label><br>
+    <select id="produce_type" name="produce_type">
+      <option value="Fruits">Fruits</option>
+      <option value="Vegetables">Vegetables</option>
+      <option value="Grains">Grains</option>
+      <option value="Other">Other</option>
+    </select><br><br>
+
+    <input type="submit" value="Register">
+    <input type="reset" value="Reset">
+  </form>
+
+</body>
+</html>

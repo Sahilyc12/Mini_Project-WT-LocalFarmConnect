@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>LocalFarmConnect - Products</title>
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+  <style>
+    /* Table styling */
+    table {
+      border-collapse: collapse;
+      width: 80%;
+      margin: auto;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    tr:nth-child(even) {background-color: #f2f2f2;}
+    th {background-color: #4CAF50; color: white;}
+
+    /* Product images */
+    img.product-img {
+      width: 60px;
+      height: 60px;
+      vertical-align: middle;
+      margin-right: 8px;
+      transition: transform 0.3s;
+    }
+    img.product-img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Buy button styling */
+    button.buy-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 5px 12px;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button.buy-btn:hover {
+      background-color: #45a049;
+    }
+
+    /* Category filter */
+    #category-filter {
+      margin-left: 10%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Menu -->
+  <div id="menu" align="center">
+    <a href="index.html">HOME</a> |
+    <a href="products.html">PRODUCTS</a> |
+    <a href="farmer-register.html">FARMER REGISTER</a> |
+    <a href="contact.html">CONTACT</a>
+  </div>
+
+  <h1 style="text-align:center;">Available Products</h1>
+
+  <!-- Category Filter -->
+  <label style="margin-left:10%;">Filter by Category:</label>
+  <select id="category-filter">
+    <option value="all">All</option>
+    <option value="fruits">Fruits</option>
+    <option value="vegetables">Vegetables</option>
+    <option value="dairy">Dairy</option>
+  </select>
+
+  <!-- Product Table -->
+  <table id="product-table">
+    <caption>Today's Items</caption>
+    <tr>
+      <th>Product</th>
+      <th>Farmer</th>
+      <th>Price (₹)</th>
+      <th>Stock</th>
+      <th>Action</th>
+    </tr>
+    <tr data-category="vegetables">
+      <td title="Fresh, locally grown tomatoes">
+        <img src="tomatoes.jpg" alt="Tomatoes" class="product-img">
+        Tomatoes
+      </td>
+      <td>Ramesh</td>
+      <td>₹30/kg</td>
+      <td>In Stock</td>
+      <td><button class="buy-btn">Buy Now</button></td>
+    </tr>
+    <tr data-category="vegetables">
+      <td title="Fresh, locally grown tomatoes">
+        <img src="tomatoes.jpg" alt="Tomatoes" class="product-img">
+        Tomatoes
+      </td>
+      <td>Meera</td>
+      <td>₹28/kg</td>
+      <td>In Stock</td>
+      <td><button class="buy-btn">Buy Now</button></td>
+    </tr>
+    <tr data-category="dairy">
+      <td title="Organic milk from local farms (1 L)">
+        <img src="milk.jpg" alt="Milk" class="product-img">
+        Organic Milk (1 L)
+      </td>
+      <td>Mahesh</td>
+      <td>₹55/L</td>
+      <td>Limited</td>
+      <td><button class="buy-btn">Buy Now</button></td>
+    </tr>
+  </table>
+
+  <!-- Ordering Steps Section -->
+  <h2 style="text-align:center; margin-top:30px;">How to Order</h2>
+  <ol type="A" style="width:80%; margin:auto;">
+    <li>Place Order</li>
+    <li>Confirm Address</li>
+    <li>Delivery</li>
+  </ol>
+
+  <!-- JS -->
+  <script>
+    // Filter products by category
+    const filterSelect = document.getElementById('category-filter');
+    filterSelect.addEventListener('change', function() {
+      const category = this.value;
+      const rows = document.querySelectorAll('#product-table tr[data-category]');
+      rows.forEach(row => {
+        if(category === 'all' || row.getAttribute('data-category') === category) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    });
+
+    // Buy Now buttons
+    document.querySelectorAll('.buy-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        alert('Added to cart!');
+      });
+    });
+  </script>
+</body>
+</html>
